@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+/* ---------------- Theme Style (Start) -----------------*/
+:root {
+  /* Default Dark Theme Variables */
+  --bg-color: #fff;
+  --text-color: #000;
+  --elements-color: #fff;
+  --box-shadow: 0 3px 8px 0px #1e1d1d1a;;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* If user prefers dark mode (respects OS setting) */
+  :root {
+    --bg-color: hsl(207, 26%, 17%);
+    --text-color: #fff;
+    --elements-color: hsl(209, 23%, 22%);
+  }
+}
+
+body.dark-mode {
+  /* Force dark mode (via toggle) */
+  --bg-color: hsl(207, 26%, 17%);
+  --text-color: #fff;
+  --elements-color: hsl(209, 23%, 22%);
+}
+
+body.light-mode {
+  /* Force light mode (via toggle) */
+  --bg-color: #f8f8f8;
+  --text-color: #000;
+  --elements-color: #fff;
+}
+
+.theme-changer {
+  cursor: pointer;
+}
+
+/* ---------------- Theme Style (End) -----------------*/
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.header-container {
+  width: 100%;
+  background-color: var(--elements-color);
+  box-shadow: var(--box-shadow);
+
+  .nav-container {
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 44px;
+    padding-block: 24px;
+    margin-inline: auto;
+
+    .nav-title a {
+      text-decoration: none;
+      color: var(--text-color);
+    }
+  }
+}
+
+.search-filter-container {
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 44px;
+  margin-block: 50px;
+  margin-inline: auto;
+  gap: 14px;
+
+  .search-container {
+    width: 450px;
+    background-color: var(--elements-color);
+    box-shadow: var(--box-shadow);
+    padding-inline: 24px;
+    padding-block: 16px;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .search-bar {
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: var(--elements-color);
+      color: inherit;
+      font-family: inherit;
+      font-size: 14px;
+    }
+  }
+
+  .filter-container {
+    width: 250px;
+    background-color: var(--elements-color);
+    box-shadow: var(--box-shadow);
+    padding-inline: 10px;
+    padding-block: 16px;
+    border-radius: 7px;
+
+    .filter-by-region {
+      width: 100%;
+      background-color: var(--elements-color);
+      color: inherit;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+  }
+}
+
+.countries-container {
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-inline: 44px;
+  margin-block: 50px;
+  margin-inline: auto;
+  gap: 10px;
+
+  .card-container {
+    max-width: 270px;
+    margin-bottom: inherit;
+    background-color: var(--elements-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+
+    .countery-flag {
+      width: 100%;
+      aspect-ratio: 2/1.1;
+      object-fit: cover;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    .countery-details {
+      padding-inline: 24px;
+      padding-block-end: 44px;
+      
+      .countery-name {
+        color: var(--text-color);
+        padding-block: 14px;
+      }
+
+      p {
+        font-size: 14px;
+        color: var(--text-color);
+      }
+    }
+  }
+}
+
+/* ---------- media query ----------- */
+
+@media (max-width: 480px) {
+
+  .nav-container {
+    padding-inline: 20px !important;
+  }
+
+  .nav-title {
+    font-size: 17px;
+  }
+
+  .theme-changer {
+    font-size: 14px;
+  }
+
+  .search-filter-container {
+    flex-wrap: wrap;
+    row-gap: 28px;
+  }
+
+  .card-container {
+    min-width: 100%;
+    margin: auto;
+  }
+}
